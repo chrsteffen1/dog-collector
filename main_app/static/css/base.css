@@ -93,6 +93,10 @@ nav li {
   padding: 5px 8px;
 }
 
+.logo_img {
+  height: 10px;
+}
+
 .header-logo-container {
   margin: auto;
   padding: 10px 20px 0;

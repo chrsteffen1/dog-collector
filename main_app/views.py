@@ -1,8 +1,11 @@
 from django.shortcuts import render
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Dog
 
 
-
+class DogCreate(CreateView):
+  model = Dog
+  fields = ['name', 'breed', 'description', 'age']
 
 # Create your views here.
 
@@ -20,3 +23,4 @@ def dogs_index(request):
 def dogs_detail(request, dog_id):
   dog = Dog.objects.get(id=dog_id)
   return render(request, 'dogs/detail.html', { 'dog': dog })
+

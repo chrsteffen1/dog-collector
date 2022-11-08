@@ -22,21 +22,23 @@
 <section class="card-container">
   {% for dog in dogs %}
     <div class="card">
-      <div class="card-content">
-        <div class="card-img-container">
-          <img 
-            src="{% static 'images/happy-dog.svg' %}" 
-            alt="happydog"
-          >
+      <a href="/dogs/{{ dog.id}}">
+        <div class="card-content">
+          <div class="card-img-container">
+            <img 
+              src="{% static 'images/happy-dog.svg' %}" 
+              alt="happydog"
+            >
+          </div>
+          <h2 class="card-title">{{ dog.name }}</h2>
+          {% if dog.age > 0 %}
+            <p>A {{ dog.age }} year old {{ dog.breed }}</p>
+          {% else %}
+            <p>A {{ dog.breed }} puppy.</p>
+          {% endif %}
+          <p><small>{{ dog.description }}</small></p>
         </div>
-        <h2 class="card-title">{{ dog.name }}</h2>
-        {% if dog.age > 0 %}
-          <p>A {{ dog.age }} year old {{ dog.breed }}</p>
-        {% else %}
-          <p>A {{ dog.breed }} puppy.</p>
-        {% endif %}
-        <p><small>{{ dog.description }}</small></p>
-      </div>
+      </a>
     </div>
   {% endfor %}
 </section>

@@ -1,6 +1,9 @@
 from django.db import models
 from django.urls import reverse
 
+
+
+  
 class Dog(models.Model):
   name = models.CharField(max_length=100)
   breed = models.CharField(max_length=100)
@@ -13,4 +16,9 @@ class Dog(models.Model):
   
   def get_absolute_url(self):
       return reverse("dogs_detail", kwargs={"dog_id": self.id})
-  
+
+class Walks(models.Model):
+  date = models.DateField()
+  miles = models.IntegerField()
+  dog = models.ForeignKey(Dog, on_delete=models.CASCADE)
+

@@ -6,6 +6,7 @@ from .models import Dog
 class DogCreate(CreateView):
   model = Dog
   fields = ['name', 'breed', 'description', 'age']
+  
 
 # Create your views here.
 

@@ -7,7 +7,13 @@ class DogCreate(CreateView):
   model = Dog
   fields = ['name', 'breed', 'description', 'age']
   
+class DogUpdate(UpdateView):
+  model = Dog
+  fields = ['breed', 'description', 'age']
 
+class DogDelete(DeleteView):
+  model = Dog
+  success_url = '/dogs/'
 # Create your views here.
 
 

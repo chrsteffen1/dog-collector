@@ -18,7 +18,7 @@ class Dog(models.Model):
       return reverse("dogs_detail", kwargs={"dog_id": self.id})
 
 class Walks(models.Model):
-  date = models.DateField()
+  date = models.DateField('Walking date')
   miles = models.IntegerField()
   dog = models.ForeignKey(Dog, on_delete=models.CASCADE)
 

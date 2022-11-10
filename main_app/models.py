@@ -22,4 +22,5 @@ class Walks(models.Model):
   miles = models.IntegerField()
   dog = models.ForeignKey(Dog, on_delete=models.CASCADE)
   
-
+class Meta:
+  ordering = ['-date']

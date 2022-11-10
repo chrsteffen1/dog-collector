@@ -60,3 +60,8 @@ def add_walking(request, dog_id):
     new_walking.dog_id = dog_id
     new_walking.save()
   return redirect('dogs_detail', dog_id=dog_id)
+
+def assoc_toy(request, dog_id, toy_id):
+  # Note that you can pass a toy's id instead of the whole object
+  Dog.objects.get(id=dog_id).toys.add(toy_id)
+  return redirect('dogs_detail', dog_id=dog_id)

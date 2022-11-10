@@ -119,7 +119,6 @@
       </div>
       <h3>Available Toys</h3>
         <div class="subsection-content">
-          {% comment %} We'll display available toys here {% endcomment %}
           {% if toys.count %}
             {% for toy in toys.all %}
               <div class="toy-container">
@@ -130,7 +129,7 @@
                 <a href="{% url 'toys_detail' toy.id %}">
                   <p>A {{ toy.color }} {{ toy.name }}</p>
                 </a>
-                <form action="" method="post">
+                <form action="{% url 'assoc_toy' dog.id toy.id %}" method="post">
                   {% csrf_token %}
                   <button type="submit" class="btn submit">Give toy</button>
                 </form>

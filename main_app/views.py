@@ -26,6 +26,14 @@ class DogDelete(DeleteView):
 class ToyCreate(CreateView):
   model = Toy
   fields = '__all__'
+
+class ToyUpdate(UpdateView):
+  model = Toy
+  fields = ['name', 'color']
+
+class ToyDelete(DeleteView):
+  model = Toy
+  success_url = '/toys/'
 # Create your views here.
 
 

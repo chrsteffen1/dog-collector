@@ -4,6 +4,8 @@ from .models import Dog, Toy
 from .forms import WalkingForm
 from django.views.generic import ListView, DetailView
 from django.contrib.auth.views import LoginView
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
 
 class ToyList(ListView):
   model = Toy
@@ -71,6 +73,19 @@ def add_walking(request, dog_id):
   return redirect('dogs_detail', dog_id=dog_id)
 
 def assoc_toy(request, dog_id, toy_id):
-  # Note that you can pass a toy's id instead of the whole object
   Dog.objects.get(id=dog_id).toys.add(toy_id)
   return redirect('dogs_detail', dog_id=dog_id)
+
+def signup(request):
+  error_message = ''
+  if request.method == 'POST':
+    form = UserCreationForm(request.POST)
+    if form.is_valid():
+      user = form.save()
+      login(request, user)
+      return redirect('cats_index')
+    else:
+      error_message = 'Invalid sign up - try again'
+  form = UserCreationForm()
+  context = {'form': form, 'error_message': error_message}
+  return render(request, 'signup.html', context)

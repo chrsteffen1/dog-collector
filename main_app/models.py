@@ -21,4 +21,5 @@ class Walks(models.Model):
   date = models.DateField('Walking date')
   miles = models.IntegerField()
   dog = models.ForeignKey(Dog, on_delete=models.CASCADE)
+  
 

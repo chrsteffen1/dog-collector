@@ -60,10 +60,12 @@
       />
     </div>
     <h3>Add a Walk</h3>
-    <form action=""
-    method='post'
-    class='subsection-content'
-    autocomplete="off">
+    <form 
+      action="{% url 'add_walking' dog.id %}"
+      method='post'
+      class='subsection-content'
+      autocomplete="off"
+      >
       {% csrf_token %}
       {{ walking_form.as_p }}
       <button type="submit" class="btn submit">Add Walk</button>
@@ -77,7 +79,7 @@
         {% for walk in dog.walks_set.all %}
           <tr>
             <td>{{walk.date}}</td>
-            <td>{{walk.get_meal_display}}</td>
+            <td>{{walk.miles}}</td>
           </tr>
         {% endfor %}
       </tbody>

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Dog
 from .forms import WalkingForm
@@ -33,3 +33,10 @@ def dogs_detail(request, dog_id):
   walking_form = WalkingForm()
   return render(request, 'dogs/detail.html', { 'dog': dog, 'walking_form': walking_form })
 
+def add_walking(request, dog_id):
+  form = WalkingForm(request.POST)
+  if form.is_valid():
+    new_walking = form.save(commit=False)
+    new_walking.dog_id = dog_id
+    new_walking.save()
+  return redirect('dogs_detail', dog_id=dog_id)

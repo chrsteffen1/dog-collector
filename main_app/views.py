@@ -3,6 +3,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Dog, Toy
 from .forms import WalkingForm
 from django.views.generic import ListView, DetailView
+from django.contrib.auth.views import LoginView
 
 class ToyList(ListView):
   model = Toy
@@ -34,6 +35,10 @@ class ToyUpdate(UpdateView):
 class ToyDelete(DeleteView):
   model = Toy
   success_url = '/toys/'
+
+class Home(LoginView):
+  template_name = 'home.html'
+
 # Create your views here.
 
 

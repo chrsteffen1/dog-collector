@@ -1,8 +1,17 @@
 from django.db import models
 from django.urls import reverse
+from datetime import date
 
+# Add the Toy model
+class Toy(models.Model):
+  name = models.CharField(max_length=50)
+  color = models.CharField(max_length=20)
 
+  def __str__(self):
+    return self.name
 
+  def get_absolute_url(self):
+    return reverse('toys_detail', kwargs={'pk': self.id})
   
 class Dog(models.Model):
   name = models.CharField(max_length=100)
@@ -15,7 +24,9 @@ class Dog(models.Model):
     return self.name
   
   def get_absolute_url(self):
-      return reverse("dogs_detail", kwargs={"dog_id": self.id})
+    return reverse("dogs_detail", kwargs={"dog_id": self.id})
+  
+
 
 class Walks(models.Model):
   date = models.DateField('Walking date')
@@ -24,3 +35,5 @@ class Walks(models.Model):
   
 class Meta:
   ordering = ['-date']
+
+

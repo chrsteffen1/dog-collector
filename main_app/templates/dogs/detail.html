@@ -66,6 +66,11 @@
       class='subsection-content'
       autocomplete="off"
       >
+      {% if dog.walks_set.all.count > 3 %}
+        <p class='walked'>{{dog.name}} has had enough exercise today!</p>
+      {% else %}
+        <p class="unwalked">{{dog.name}} needs to at least 3 walks a day!</p>
+      {% endif %}
       {% csrf_token %}
       {{ walking_form.as_p }}
       <button type="submit" class="btn submit">Add Walk</button>

@@ -15,6 +15,10 @@ class ToyDetail(DetailView):
 class DogCreate(CreateView):
   model = Dog
   fields = ['name', 'breed', 'description', 'age']
+
+  def form_valid(self, form):
+    form.instance.user = self.request.user  
+    return super().form_valid(form)
   
 class DogUpdate(UpdateView):
   model = Dog

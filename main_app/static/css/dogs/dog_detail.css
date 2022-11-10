@@ -1,3 +1,6 @@
+*{
+  background-color: red;
+}
 .dog-container {
   padding: 35px 30px;
   display: flex;
@@ -218,6 +221,4 @@
   }
 }
 
-section{
-  background-color: red;
-}
+

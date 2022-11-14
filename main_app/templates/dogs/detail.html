@@ -12,8 +12,8 @@
 >
 </script>
 <link 
-  rel="stylesheet" 
-  type="text/css" 
+  rel="stylesheet"
+  type="text/css"
   href="{% static 'css/dogs/dog-detail.css' %}"
 />
 <script defer src="{% static 'js/dog-detail.js' %}"></script>
@@ -25,7 +25,7 @@
 <section class="dog-container">
   <div class="dog-img">
     <img 
-      src="{% static 'images/' %}" 
+      src="{% static 'images/happy-dog.png' %}" 
       alt="Fat boi"
     >
   </div>
@@ -47,16 +47,16 @@
     <div class="subsection-title">
       <h2>Walks</h2>
       <img 
-        src="{% static 'images/dog-cone.svg' %}" 
-        alt="An ice cream cone dog"
+        src="{% static 'images/ball.jpeg' %}" 
+        alt="dog ball"
       />
       <img 
-        src="{% static 'images/dog-onigiri.svg' %}"
-        alt="A dog as onigiri"
+        src="{% static 'images/bone.png' %}"
+        alt="A dog bowl"
       />
       <img 
-        src="{% static 'images/kitty-kabob.svg' %}" 
-        alt="A kabob of kittens"
+        src="{% static 'images/bowl.jpeg' %}" 
+        alt="Adog bowl"
       />
     </div>
     <h3>Add a Walk</h3>
@@ -66,10 +66,10 @@
       class='subsection-content'
       autocomplete="off"
       >
-      {% if dog.walks_set.all.count > 3 %}
-        <p class='walked'>{{dog.name}} has had enough exercise today!</p>
+      {% if dog.walks_set.all.count > 2 %}
+        <p class='walked'>{{dog.name}} loves all this exercise!</p>
       {% else %}
-        <p class="unwalked">{{dog.name}} needs to at least 3 walks a day!</p>
+        <p class="unwalked">{{dog.name}} needs to at least 3 walks!</p>
       {% endif %}
       {% csrf_token %}
       {{ walking_form.as_p }}

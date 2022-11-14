@@ -9,7 +9,7 @@
   <link
     rel="shortcut icon"
     type="image/png"
-    href="{% static 'images/splash.svg' %}"
+    href="{% static 'images/splash.png' %}"
   >
   <title>Doggy Collector</title>
   <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
@@ -29,7 +29,7 @@
     <nav>
       <ul>
         {% if user.is_authenticated %}
-          <li><a href="{% url 'dog_index' %}">All dogs</a></li>
+          <li><a href="{% url 'dogs_index' %}">All dogs</a></li>
           <li><a href="{% url 'toys_index' %}">All Toys</a></li>
           <li><a href="{% url 'dogs_create' %}">Add a Dog</a></li>
           <li><a href="{% url 'toys_create' %}">Add a Toy</a></li>

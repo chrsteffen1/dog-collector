@@ -37,7 +37,10 @@
   margin: 5px 0;
   font-size: var(--font-reg);
 }
+.page-header > img:nth-child(odd){
+  height: 170px;
+}
 
-.card-img-container > img{
-height: 40vh;
+.card-img-container  img{
+height: 30vh;
 }

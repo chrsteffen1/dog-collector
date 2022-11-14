@@ -5,6 +5,7 @@
   flex-wrap: wrap;
 }
 
+
 .card {
   width: 275px;
   margin: 10px;
@@ -35,4 +36,8 @@
 .card p {
   margin: 5px 0;
   font-size: var(--font-reg);
+}
+
+.card-img-container > img{
+height: 40vh;
 }

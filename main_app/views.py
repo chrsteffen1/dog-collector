@@ -56,10 +56,10 @@ def home(request):
 def about(request):
   return render(request, 'about.html')
 
-@login_required
+
 def dogs_index(request):
   dogs = Dog.objects.filter(user=request.user)
-  return render(request, 'dogs/index.html', { 'dogs': dogs})
+  return render(request, 'dogs/index.html', { 'dogs': dogs })
 
 @login_required
 def dogs_detail(request, dog_id):
@@ -89,7 +89,7 @@ def signup(request):
     if form.is_valid():
       user = form.save()
       login(request, user)
-      return redirect('cats_index')
+      return redirect('dogs_index')
     else:
       error_message = 'Invalid sign up - try again'
   form = UserCreationForm()
